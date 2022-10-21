@@ -2,12 +2,15 @@ public class LinearEquation {
     int xCoord;
     int yCoord;
 
-    public void LinearEquation(String coord){
-        coord = coord.substring(1, coord.length() -1);  //Gets rid of paranthesis
+    String debug;
 
-        this.xCoord = Integer.parseInt(coord.substring(0, coord.indexOf(","))); //gets x coordinate from string
+    //(0, 3) --> 0,
+    public LinearEquation(String coord){
+        String newCoord = coord.substring(1, coord.length()-1);  //Gets rid of paranthesis so we can use parseInt
 
-        this.yCoord = Integer.parseInt(coord.substring(coord.indexOf(",") + 2, coord.length())); //gets y value **remember the space after the comma
+        this.xCoord = Integer.parseInt(newCoord.substring(0, newCoord.indexOf(","))); //gets x coordinate from string
+
+        this.yCoord = Integer.parseInt(newCoord.substring(newCoord.indexOf(",") + 2)); //gets y value **remember the space after the comma
     }
 
 
