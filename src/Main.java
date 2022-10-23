@@ -25,7 +25,6 @@ public class Main {
         System.out.println("Enter 2nd coordinate in format (x, y) **including space: ");
         String Coord2 = scan.nextLine();
         Coord2 = Coord2.substring(1, Coord2.length()-1);
-
         x2 = Integer.parseInt(Coord2.substring(0, Coord2.indexOf(",")));
         y2 = Integer.parseInt(Coord2.substring(Coord2.indexOf(",") + 2));
 
@@ -33,5 +32,10 @@ public class Main {
 
         System.out.println(String.format("Coordinate 1 (%s, %s) and Coordinate 2 (%s, %s)", x1, y1, x2, y2));
 
+
+
+        //Giving points into class for operations
+        LinearEquation coordinate = new LinearEquation(x1, y1, x2, y2);
+        System.out.println(coordinate.slope());
     }
 }
