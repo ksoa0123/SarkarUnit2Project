@@ -37,8 +37,12 @@ public class LinearEquation {
 
     }
 
+    public String equation(){
+        return String.format("y = %sx + %s", this.slope(), this.yInt());
+
+        //TO DO:
+        //READ FORMATING GUIDE IN DOCS AND THEN CODE ACCORDINGLY
+    }
 
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
-
-
 }

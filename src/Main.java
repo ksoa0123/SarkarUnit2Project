@@ -39,5 +39,7 @@ public class Main {
         System.out.println(coordinate.slope());
 
         System.out.println(coordinate.yInt());
+
+        System.out.println(coordinate.equation());
     }
 }
