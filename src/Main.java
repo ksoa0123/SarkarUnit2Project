@@ -37,5 +37,7 @@ public class Main {
         //Giving points into class for operations
         LinearEquation coordinate = new LinearEquation(x1, y1, x2, y2);
         System.out.println(coordinate.slope());
+
+        System.out.println(coordinate.yInt());
     }
 }

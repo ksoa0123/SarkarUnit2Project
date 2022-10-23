@@ -6,6 +6,8 @@ public class LinearEquation {
         if (x1 == x2){
             if (y1 != y2){
                 System.out.println("You have entered coordinates that result in a vertical line and provide an equation in the form x = __, e.g. x = 4 for points (4, 5) and (4, -6)");
+                System.out.println("Line Equation: x = " + x1);
+                System.exit(1); //Quits application
             }
         }
 
@@ -23,6 +25,16 @@ public class LinearEquation {
         double roundedSlope = Math.round((yDiff / xDiff) * 100.00) / 100.00; //Rounding to nearest hundrehts
 
         return roundedSlope;
+    }
+
+    public double yInt(){
+        //Format: y1 - (slope * x1), derived from simplifying y = mx + b equation
+
+        double yIntercept;
+        yIntercept = yCoord1 - (this.slope() * xCoord1);
+        yIntercept = Math.round(yIntercept * 100.00) / 100.00; //Round to nearest hundreths
+        return yIntercept;
+
     }
 
 
