@@ -42,6 +42,8 @@ public class LinearEquation {
 
         //TO DO:
         //READ FORMATING GUIDE IN DOCS AND THEN CODE ACCORDINGLY
+
+        //I am incredibly idoitic
     }
 
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
