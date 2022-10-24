@@ -87,7 +87,7 @@ public class LinearEquation {
         }
 
         if (this.yInt() < 0){ //if y intercept is negative
-            yIntEnd = " - " + this.yInt();
+            yIntEnd = " - " + Math.abs(this.yInt()); //formatting cuz ocd
         }
 
         return "y = " + stringSlope + "x" + yIntEnd;
