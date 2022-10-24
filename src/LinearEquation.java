@@ -37,13 +37,50 @@ public class LinearEquation {
 
     }
 
-    public String equation(){
+    public String simpleEquation(){
         return String.format("y = %sx + %s", this.slope(), this.yInt());
+    }
+    public String equation(){
+        //Hours wasted here: 2
+        int num = yCoord2 - yCoord1;
+        int denom = xCoord2 - xCoord1;
 
-        //TO DO:
-        //READ FORMATING GUIDE IN DOCS AND THEN CODE ACCORDINGLY
+        String stringSlope = num + "/" + denom; //Original fraction, will be replaced by rules, otherwhise normal fraction prints
 
-        //Fixed duplicate file containing no code
+        if (denom % num == 0){ //If 0 then it means it can be simplifed further, denom is divisable by num
+            denom = denom / num;
+            num = num / num;
+            stringSlope = num + "/" + denom;
+        }
+
+
+        //if whole number as a fraction
+
+        if (num % denom == 0 ){ // if can be simplfied as a whole number
+            stringSlope = Integer.toString(num / denom);
+        }
+
+        if (stringSlope.equals("1")){ //if it is coefficent 1 -> has to be x
+            stringSlope = "x";
+        }
+
+        if (num < 0 && denom < 0){ //if both numerator and denominator are negative, and it cannot be simpliufied further
+            num = Math.abs(num);
+            denom = Math.abs(denom);
+            stringSlope = num + "/" + denom;
+        }
+
+        if ((double) num / denom < 0){ //if divided is negative (one of them has to be negative) so we move the negative sign to the numerator as per rubric for formatting
+            denom = Math.abs(denom); //turn the denominator into a positive, if it is in front of numerator it still will be a (-) fraction
+
+            if (num > 0){ //if num is positive then make it negative so we can format it, otherwise it will already be the one that is negative, thus entacting our desired format
+                num = num * -1;
+                stringSlope = num + "/" + denom;
+            }
+
+        }
+
+        return stringSlope;
     }
 
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)

@@ -40,6 +40,8 @@ public class Main {
 
         System.out.println(coordinate.yInt());
 
+        System.out.println(coordinate.simpleEquation());
+
         System.out.println(coordinate.equation());
     }
 }
