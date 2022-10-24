@@ -43,7 +43,7 @@ public class LinearEquation {
         //TO DO:
         //READ FORMATING GUIDE IN DOCS AND THEN CODE ACCORDINGLY
 
-        //I am incredibly idoitic
+        //Fixed duplicate file containing no code
     }
 
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
