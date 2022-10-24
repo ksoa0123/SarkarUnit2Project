@@ -42,6 +42,7 @@ public class LinearEquation {
     }
     public String equation(){
         //Hours wasted here: 2
+
         int num = yCoord2 - yCoord1;
         int denom = xCoord2 - xCoord1;
 
@@ -81,7 +82,7 @@ public class LinearEquation {
         }
 
         //Format Y Intercept
-        String yIntEnd = "";
+        String yIntEnd = ""; //If y int is 0 none of the values will be reassigned so it will still be empty on par with the rules of not printing x- int when 0
         if (this.yInt() > 0){ //if y intercept is positive
             yIntEnd = " + " + this.yInt();
         }
@@ -94,4 +95,7 @@ public class LinearEquation {
     }
 
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
+
+    // TO DO
+    //Doesn't work for case when Slope is supposed to be whole number, ex: 12 (num), -4 (denom). POINTS; (1,-10), (-3,2)
 }
