@@ -61,7 +61,7 @@ public class LinearEquation {
         }
 
         if (stringSlope.equals("1")){ //if it is coefficent 1 -> has to be x
-            stringSlope = "x";
+            stringSlope = ""; //no coefficent, x already in final string return statement so we just make coefficent empty
         }
 
         if (num < 0 && denom < 0){ //if both numerator and denominator are negative, and it cannot be simpliufied further
@@ -80,7 +80,17 @@ public class LinearEquation {
 
         }
 
-        return stringSlope;
+        //Format Y Intercept
+        String yIntEnd = "";
+        if (this.yInt() > 0){ //if y intercept is positive
+            yIntEnd = " + " + this.yInt();
+        }
+
+        if (this.yInt() < 0){ //if y intercept is negative
+            yIntEnd = " - " + this.yInt();
+        }
+
+        return "y = " + stringSlope + "x" + yIntEnd;
     }
 
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
