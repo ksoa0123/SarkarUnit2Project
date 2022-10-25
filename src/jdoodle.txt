@@ -1,0 +1,52 @@
+//JDOODLE SAVE FOR TESTING CODE PURPOSES (SIMPLIFIED VERSION FOR SLOPE)
+
+public class MyClass {
+    public static void main(String args[]) {
+      //Simplify fraction
+
+      int num = 12;
+      int denom = -4;
+
+
+      String finalString = num + "/" + denom; //Original fraction, will be replaced by rules, otherwhise normal fraction prints
+
+      //<---Checking for condtions to format fractions ---->
+      if (denom % num == 0){ //If 0 then it means it can be simplifed further, denom is divisable by num
+          denom = denom / num;
+          num = num / num;
+          finalString = num + "/" + denom;
+      }
+
+
+      //if whole number as a fraction
+
+      if (num % denom == 0 ){ // if can be simplfied as a whole number
+          finalString = Integer.toString(num / denom);
+      }
+
+      if (finalString.equals("1")){ //if it is coefficent 1 -> has to be x
+          finalString = "x";
+      }
+
+      //<---Changing FORMATTED Signs --->
+      if ((double) num / denom < 0){ //if divided is negative (one of them has to be negative) so we move the negative sign to the numerator as per rubric for formatting
+          denom = Math.abs(denom); //turn the denominator into a positive, if it is in front of numerator it still will be a (-) fraction
+          if (num > 0){ //if num is positive then make it negative so we can format it, otherwise it will already be the one that is negative, thus entacting our desired format
+              num = num * -1;
+              finalString = num + "/" + denom;
+          }
+
+      }
+
+      if (num < 0 && denom < 0){ //if both numerator and denominator are negative, and it cannot be simpliufied further
+          num = Math.abs(num);
+          denom = Math.abs(denom);
+
+          finalString = num + "/" + denom;
+      }
+
+
+
+      System.out.println(finalString);
+    }
+}
