@@ -4,11 +4,18 @@ public class LinearEquation {
     public LinearEquation(int x1, int y1, int x2, int y2){
         //Check if fails vertical line test
         if (x1 == x2){
-            if (y1 != y2){
+            if (y1 != y2){ //when y1 and y2 are different, otherwise it would be a horizontial line
                 System.out.println("You have entered coordinates that result in a vertical line and provide an equation in the form x = __, e.g. x = 4 for points (4, 5) and (4, -6)");
                 System.out.println("Line Equation: x = " + x1);
                 System.exit(1); //Quits application
             }
+        }
+
+        //Checks if horizontial line
+        if (y2 - y1 == 0){ //When y2 and y1 are the same
+            System.out.println("You have entered coordinates that result in a horizontial line and provide an equation in the form y = _, e.g. y = 12 for points (7, 12) and (3, 12)");
+            System.out.println("Line Equation: y = " + y1);
+            System.exit(1); //Quits application
         }
 
         this.xCoord1 = x1;
@@ -41,7 +48,7 @@ public class LinearEquation {
         return String.format("y = %sx + %s", this.slope(), this.yInt());
     }
     public String equation(){
-        //Hours wasted here: 2
+        //Hours wasted here: 3 :'(
 
         int num = yCoord2 - yCoord1;
         int denom = xCoord2 - xCoord1;
@@ -65,21 +72,31 @@ public class LinearEquation {
             stringSlope = ""; //no coefficent, x already in final string return statement so we just make coefficent empty
         }
 
-        if (num < 0 && denom < 0){ //if both numerator and denominator are negative, and it cannot be simpliufied further
-            num = Math.abs(num);
-            denom = Math.abs(denom);
-            stringSlope = num + "/" + denom;
+        if (stringSlope.equals("-1")){ //Coefficent of -1
+            stringSlope = "-";
         }
+
 
         if ((double) num / denom < 0){ //if divided is negative (one of them has to be negative) so we move the negative sign to the numerator as per rubric for formatting
             denom = Math.abs(denom); //turn the denominator into a positive, if it is in front of numerator it still will be a (-) fraction
 
             if (num > 0){ //if num is positive then make it negative so we can format it, otherwise it will already be the one that is negative, thus entacting our desired format
                 num = num * -1;
+                if (num % denom != 0){ //If it can't be a whole number. As we don't need to format into negative as it will be a standalone negative whole number from above.
+                    stringSlope = num + "/" + denom;
+                }
+            }
+        }
+
+
+        if (num < 0 && denom < 0){ ///when both numerator and denominator are negative and it cannot be simpliufied further ex: -8/ -3  or -4/ -17 it should format correctly
+            if (num % denom != 0) {
+                num = Math.abs(num);
+                denom = Math.abs(denom);
                 stringSlope = num + "/" + denom;
             }
-
         }
+
 
         //Format Y Intercept
         String yIntEnd = ""; //If y int is 0 none of the values will be reassigned so it will still be empty on par with the rules of not printing x- int when 0

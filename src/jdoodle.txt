@@ -1,52 +1,67 @@
 //JDOODLE SAVE FOR TESTING CODE PURPOSES (SIMPLIFIED VERSION FOR SLOPE)
 
+//NOTE THAT FOR HORIZONTAIL LINE AND FOR VERTICAL LINE IT IS DONE BEFORE EQUATION() CLASS !
+
 public class MyClass {
     public static void main(String args[]) {
       //Simplify fraction
 
-      int num = 12;
-      int denom = -4;
+      int num = 6;
+      int denom = 8;
+
+    //  -2/ -2 -> -1
+        String stringSlope = num + "/" + denom; //Original fraction, will be replaced by rules, otherwhise normal fraction prints
 
 
-      String finalString = num + "/" + denom; //Original fraction, will be replaced by rules, otherwhise normal fraction prints
-
-      //<---Checking for condtions to format fractions ---->
-      if (denom % num == 0){ //If 0 then it means it can be simplifed further, denom is divisable by num
-          denom = denom / num;
-          num = num / num;
-          finalString = num + "/" + denom;
-      }
+        if (denom % num == 0){ //If 0 then it means it can be simplifed further, denom is divisable by num
+            denom = denom / num;
+            num = num / num;
+            stringSlope = num + "/" + denom;
+        }
 
 
-      //if whole number as a fraction
+        //if whole number as a fraction
 
-      if (num % denom == 0 ){ // if can be simplfied as a whole number
-          finalString = Integer.toString(num / denom);
-      }
-
-      if (finalString.equals("1")){ //if it is coefficent 1 -> has to be x
-          finalString = "x";
-      }
-
-      //<---Changing FORMATTED Signs --->
-      if ((double) num / denom < 0){ //if divided is negative (one of them has to be negative) so we move the negative sign to the numerator as per rubric for formatting
-          denom = Math.abs(denom); //turn the denominator into a positive, if it is in front of numerator it still will be a (-) fraction
-          if (num > 0){ //if num is positive then make it negative so we can format it, otherwise it will already be the one that is negative, thus entacting our desired format
-              num = num * -1;
-              finalString = num + "/" + denom;
-          }
-
-      }
-
-      if (num < 0 && denom < 0){ //if both numerator and denominator are negative, and it cannot be simpliufied further
-          num = Math.abs(num);
-          denom = Math.abs(denom);
-
-          finalString = num + "/" + denom;
-      }
+        if (num % denom == 0 ){ // if can be simplfied as a whole number
+            stringSlope = Integer.toString(num / denom);
+        }
 
 
 
-      System.out.println(finalString);
+
+        if (stringSlope.equals("1")){ //if it is coefficent 1 -> has to be x
+            stringSlope = ""; //no coefficent, x already in final string return statement so we just make coefficent empty
+        }
+
+        if (stringSlope.equals("-1")){ //Coefficent of -1
+            stringSlope = "-";
+        }
+
+
+
+
+
+        if ((double) num / denom < 0){ //if divided is negative (one of them has to be negative) so we move the negative sign to the numerator as per rubric for formatting
+            denom = Math.abs(denom); //turn the denominator into a positive, if it is in front of numerator it still will be a (-) fraction
+
+            if (num > 0){ //if num is positive then make it negative so we can format it, otherwise it will already be the one that is negative, thus entacting our desired format
+                num = num * -1;
+                if (num % denom != 0){ //If it can't be a whole number. As we don't need to format into negative as it will be a standalone negative whole number from above.
+                    stringSlope = num + "/" + denom;
+                }
+            }
+        }
+
+
+        if (num < 0 && denom < 0){ ///when both numerator and denominator are negative and it cannot be simpliufied further ex: -8/ -3  or -4/ -17 it should format correctly
+            if (num % denom != 0) {
+                num = Math.abs(num);
+                denom = Math.abs(denom);
+                stringSlope = num + "/" + denom;
+            }
+        }
+
+        System.out.println(stringSlope);
+
     }
 }
