@@ -111,8 +111,17 @@ public class LinearEquation {
         return "y = " + stringSlope + "x" + yIntEnd;
     }
 
+
+    public String coordinateForX(double xValue){
+        //Make sure to round both (x,y) to nearest hundreths
+        double xForSlope = this.slope()* xValue;
+
+        String coordinateXY = String.format("(%s, %s)", xForSlope, this.yInt());
+        return coordinateXY;
+
+    }
+
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
 
-    // TO DO
-    //Doesn't work for case when Slope is supposed to be whole number, ex: 12 (num), -4 (denom). POINTS; (1,-10), (-3,2)
+
 }
