@@ -118,8 +118,9 @@ public class LinearEquation {
 
         String coordinateXY = String.format("(%s, %s)", xForSlope, this.yInt());
         return coordinateXY;
-
     }
+
+
 
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
 
