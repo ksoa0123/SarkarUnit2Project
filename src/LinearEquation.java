@@ -28,7 +28,7 @@ public class LinearEquation {
             System.out.println("Line Equation: y = " + y1);
             System.out.println("The slope of this line is: 0.0"); //Slope will always be 0 in a horizontial line
             System.out.println("The y intercept of this line is: " + y1);
-            System.out.println("The distance between these 2 points are: " + (x1-x2)); //The distance is just y1 - y1 cuz its a horizontail line.
+            System.out.println("The distance between these 2 points are: " + Math.abs(x1-x2)); //The distance is just y1 - y1 cuz its a horizontail line.
 
             System.out.println("Enter a value for x: "); //Coordinate for x when it is a horizontial line
             double xHorizontial = scanHere.nextDouble();
