@@ -1,12 +1,22 @@
+import java.util.Scanner;
+
 public class LinearEquation {
     int xCoord1, yCoord1, xCoord2, yCoord2;
+
+    Scanner scanHere = new Scanner(System.in);
 
     public LinearEquation(int x1, int y1, int x2, int y2){
         //Check if fails vertical line test
         if (x1 == x2){
             if (y1 != y2){ //when y1 and y2 are different, otherwise it would be a horizontial line
                 System.out.println("You have entered coordinates that result in a vertical line and provide an equation in the form x = __, e.g. x = 4 for points (4, 5) and (4, -6)");
+                System.out.println(String.format("The 2 points are: (%s, %s) and (%s, %s)", x1, y1, x2, y2));
                 System.out.println("Line Equation: x = " + x1);
+                System.out.println("The slope of this line is: Undefined"); //Slope will always be undefined in a vertical line
+                System.out.println("The y intercept of this line is: Undefined");
+                System.out.println("The distance between these 2 points are: " + Math.abs(y2-y1)); //Distance in a vertical line is just y2 - y1. We do absloute value to account for (-) values
+
+                //There is no inputting x value for this to get a coordinate because only the value of x1 accepts infinite number of y values
                 System.exit(1); //Quits application
             }
         }
@@ -14,7 +24,16 @@ public class LinearEquation {
         //Checks if horizontial line
         if (y2 - y1 == 0){ //When y2 and y1 are the same
             System.out.println("You have entered coordinates that result in a horizontial line and provide an equation in the form y = _, e.g. y = 12 for points (7, 12) and (3, 12)");
+            System.out.println(String.format("The 2 points are: (%s, %s) and (%s, %s)", x1, y1, x2, y2));
             System.out.println("Line Equation: y = " + y1);
+            System.out.println("The slope of this line is: 0.0"); //Slope will always be 0 in a horizontial line
+            System.out.println("The y intercept of this line is: " + y1);
+            System.out.println("The distance between these 2 points are: " + (x1-x2)); //The distance is just y1 - y1 cuz its a horizontail line.
+
+            System.out.println("Enter a value for x: "); //Coordinate for x when it is a horizontial line
+            double xHorizontial = scanHere.nextDouble();
+            System.out.println(String.format("The point on the line is (%s, %s)", xHorizontial, y1));
+
             System.exit(1); //Quits application
         }
 
@@ -138,4 +157,7 @@ public class LinearEquation {
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
 
 
+
+    //TO DO
+    //Add slope, y int when its horizontail and vertical line, also include input and print the coordinate accordingly
 }
