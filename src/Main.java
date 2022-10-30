@@ -40,11 +40,13 @@ public class Main {
 
         System.out.println(coordinate.yInt());
 
-        System.out.println(coordinate.simpleEquation());
+        //System.out.println(coordinate.simpleEquation());
 
         System.out.println(coordinate.equation());
 
 
         System.out.println(coordinate.coordinateForX(3));
+
+        System.out.println(coordinate.distance());
     }
 }

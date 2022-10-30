@@ -114,12 +114,20 @@ public class LinearEquation {
 
     public String coordinateForX(double xValue){
         //Make sure to round both (x,y) to nearest hundreths
-        double xForSlope = this.slope()* xValue;
+        double yForSlope = (this.slope()* xValue) + this.yInt(); //Y coordinate
+        yForSlope = Math.round(yForSlope * 100.00) / 100.00; //Rounding to nearest hundreths
 
-        String coordinateXY = String.format("(%s, %s)", xForSlope, this.yInt());
+        String coordinateXY = String.format("(%s, %s)", xValue, yForSlope);
         return coordinateXY;
     }
 
+    public double distance(){
+        //Returns distance of 2 points
+        double distanceXY = Math.sqrt(Math.pow(xCoord2-xCoord1, 2) + Math.pow(yCoord2- yCoord1, 2));
+        distanceXY = Math.round(distanceXY * 100.0) / 100.0; //Rounds to nearest hundreths
+
+        return distanceXY;
+    }
 
 
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
