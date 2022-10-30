@@ -23,12 +23,7 @@ public class Main {
         y2 = Integer.parseInt(Coord2.substring(Coord2.indexOf(",") + 2));
 
 
-
-        System.out.println(String.format("Coordinate 1 (%s, %s) and Coordinate 2 (%s, %s)", x1, y1, x2, y2));
-
-
-
-        //Giving points into class for operations
+        //Giving points into class LinearEquation for operations
         LinearEquation coordinate = new LinearEquation(x1, y1, x2, y2);
 
         System.out.println(coordinate.lineInfo());

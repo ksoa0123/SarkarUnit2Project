@@ -3,12 +3,12 @@ import java.util.Scanner;
 public class LinearEquation {
     int xCoord1, yCoord1, xCoord2, yCoord2;
 
-    Scanner scanHere = new Scanner(System.in);
+    Scanner scanHere = new Scanner(System.in); //input which will only be used for horizontail line to print coordinate with x value given by user
 
     public LinearEquation(int x1, int y1, int x2, int y2){
         //Check if fails vertical line test
         if (x1 == x2){
-            if (y1 != y2){ //when y1 and y2 are different, otherwise it would be a horizontial line
+            if (y1 != y2){ //when y1 and y2 are different it means it is a vertical line, otherwise it would be a horizontial line
                 System.out.println("You have entered coordinates that result in a vertical line and provide an equation in the form x = __, e.g. x = 4 for points (4, 5) and (4, -6)");
                 System.out.println(String.format("The 2 points are: (%s, %s) and (%s, %s)", x1, y1, x2, y2));
                 System.out.println("Line Equation: x = " + x1);
@@ -53,19 +53,20 @@ public class LinearEquation {
         return roundedSlope;
     }
 
-    public double yInt(){
+    public double yIntercept(){
         //Format: y1 - (slope * x1), derived from simplifying y = mx + b equation
 
-        double yIntercept;
-        yIntercept = yCoord1 - (this.slope() * xCoord1);
-        yIntercept = Math.round(yIntercept * 100.00) / 100.00; //Round to nearest hundreths
-        return yIntercept;
+        double yInterceptValue;
+        yInterceptValue = yCoord1 - (this.slope() * xCoord1);
+        yInterceptValue = Math.round(yInterceptValue * 100.00) / 100.00; //Round to nearest hundreths
+        return yInterceptValue;
 
     }
 
     public String simpleEquation(){
-        return String.format("y = %sx + %s", this.slope(), this.yInt());
-    }
+        return String.format("y = %sx + %s", this.slope(), this.yIntercept());
+    } //Equation without any formatting **For debugging purposes
+
     public String equation(){
         //Hours wasted here: 3 :'(
 
@@ -119,12 +120,12 @@ public class LinearEquation {
 
         //Format Y Intercept
         String yIntEnd = ""; //If y int is 0 none of the values will be reassigned so it will still be empty on par with the rules of not printing x- int when 0
-        if (this.yInt() > 0){ //if y intercept is positive
-            yIntEnd = " + " + this.yInt();
+        if (this.yIntercept() > 0){ //if y intercept is positive
+            yIntEnd = " + " + this.yIntercept();
         }
 
-        if (this.yInt() < 0){ //if y intercept is negative
-            yIntEnd = " - " + Math.abs(this.yInt()); //formatting cuz ocd
+        if (this.yIntercept() < 0){ //if y intercept is negative
+            yIntEnd = " - " + Math.abs(this.yIntercept()); //formatting cuz ocd
         }
 
         return "y = " + stringSlope + "x" + yIntEnd;
@@ -133,7 +134,7 @@ public class LinearEquation {
 
     public String coordinateForX(double xValue){
         //Make sure to round both (x,y) to nearest hundreths
-        double yForSlope = (this.slope()* xValue) + this.yInt(); //Y coordinate
+        double yForSlope = (this.slope()* xValue) + this.yIntercept(); //Y coordinate
         yForSlope = Math.round(yForSlope * 100.00) / 100.00; //Rounding to nearest hundreths
 
         String coordinateXY = String.format("(%s, %s)", xValue, yForSlope);
@@ -149,15 +150,10 @@ public class LinearEquation {
     }
 
     public String lineInfo(){
-        String lineInfoString = String.format("The two points are: (%s, %s) and (%s, %s) \n The equation of the line between these points is: %s \n The slope of this line is %s \n The y-intercept of this line is %s \n The distance between the two points is %s ", xCoord1, yCoord1, xCoord2, yCoord2, this.equation(), this.slope(), this.yInt(), this.distance());
+        String lineInfoString = String.format("The two points are: (%s, %s) and (%s, %s) \n The equation of the line between these points is: %s \n The slope of this line is %s \n The y-intercept of this line is %s \n The distance between the two points is %s ", xCoord1, yCoord1, xCoord2, yCoord2, this.equation(), this.slope(), this.yIntercept(), this.distance());
 
         return lineInfoString;
     }
 
-    //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
-
-
-
-    //TO DO
-    //Add slope, y int when its horizontail and vertical line, also include input and print the coordinate accordingly
+    //Methods: equation(), slope() , yIntercept(), distance(), lineInfo() , coordinateForX(double)
 }
