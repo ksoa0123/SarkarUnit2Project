@@ -129,6 +129,11 @@ public class LinearEquation {
         return distanceXY;
     }
 
+    public String lineInfo(){
+        String lineInfoString = String.format("The two points are: (%s, %s) and (%s, %s) \n The equation of the line between these points is: %s \n The slope of this line is %s \n The y-intercept of this line is %s \n The distance between the two points is %s ", xCoord1, yCoord1, xCoord2, yCoord2, this.equation(), this.slope(), this.yInt(), this.distance());
+
+        return lineInfoString;
+    }
 
     //Methods: equation(), slope() , yInt(), distance(), lineInfo() , coordinateForX(double)
 

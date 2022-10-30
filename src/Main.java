@@ -36,17 +36,24 @@ public class Main {
 
         //Giving points into class for operations
         LinearEquation coordinate = new LinearEquation(x1, y1, x2, y2);
-        System.out.println(coordinate.slope());
+        //System.out.println(coordinate.slope());
 
-        System.out.println(coordinate.yInt());
+        //System.out.println(coordinate.yInt());
 
-        //System.out.println(coordinate.simpleEquation());
-
-        System.out.println(coordinate.equation());
+        //System.out.println(coordinate.equation());
 
 
-        System.out.println(coordinate.coordinateForX(3));
+        //System.out.println(coordinate.distance());
 
-        System.out.println(coordinate.distance());
+
+        System.out.println(coordinate.lineInfo());
+
+        System.out.println("Enter a value for x");
+        double coordinateX = scan.nextDouble();
+
+        System.out.println("The point on the line is " + coordinate.coordinateForX(coordinateX));
+
+
+
     }
 }
