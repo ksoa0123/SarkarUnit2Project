@@ -43,12 +43,15 @@ public class LinearEquation {
         this.yCoord2 = y2;
     }
 
+    public double roundedToHundredth(double toRound){
+        return Math.round(toRound * 100.00) / 100.0; //Helper method which rounds to nearest hundreths ex: 4.543 -> 4.5
+    }
 
     public double slope(){
         double yDiff = yCoord2 - yCoord1; //Casted to double to avoid integer division
         double xDiff = xCoord2 - xCoord1;
 
-        double roundedSlope = Math.round((yDiff / xDiff) * 100.00) / 100.00; //Rounding to nearest hundrehts
+        double roundedSlope = this.roundedToHundredth(yDiff / xDiff); //Rounding to nearest hundreths
 
         return roundedSlope;
     }
@@ -58,7 +61,7 @@ public class LinearEquation {
 
         double yInterceptValue;
         yInterceptValue = yCoord1 - (this.slope() * xCoord1);
-        yInterceptValue = Math.round(yInterceptValue * 100.00) / 100.00; //Round to nearest hundreths
+        yInterceptValue = this.roundedToHundredth(yInterceptValue); //Round to nearest hundreths
         return yInterceptValue;
 
     }
@@ -68,7 +71,7 @@ public class LinearEquation {
     } //Equation without any formatting **For debugging purposes
 
     public String equation(){
-        //Hours wasted here: 3 :'(
+        //Hours wasted here: 2 :'(
 
         int num = yCoord2 - yCoord1;
         int denom = xCoord2 - xCoord1;
@@ -135,7 +138,7 @@ public class LinearEquation {
     public String coordinateForX(double xValue){
         //Make sure to round both (x,y) to nearest hundreths
         double yForSlope = (this.slope()* xValue) + this.yIntercept(); //Y coordinate
-        yForSlope = Math.round(yForSlope * 100.00) / 100.00; //Rounding to nearest hundreths
+        yForSlope = this.roundedToHundredth(yForSlope); //Rounding to nearest hundreths
 
         String coordinateXY = String.format("(%s, %s)", xValue, yForSlope);
         return coordinateXY;
@@ -144,7 +147,7 @@ public class LinearEquation {
     public double distance(){
         //Returns distance of 2 points
         double distanceXY = Math.sqrt(Math.pow(xCoord2-xCoord1, 2) + Math.pow(yCoord2- yCoord1, 2));
-        distanceXY = Math.round(distanceXY * 100.0) / 100.0; //Rounds to nearest hundreths
+        distanceXY = this.roundedToHundredth(distanceXY); //Rounds to nearest hundreths
 
         return distanceXY;
     }

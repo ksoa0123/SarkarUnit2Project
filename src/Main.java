@@ -24,14 +24,14 @@ public class Main {
 
 
         //Giving points into class LinearEquation for operations
-        LinearEquation coordinate = new LinearEquation(x1, y1, x2, y2);
+        LinearEquation obj = new LinearEquation(x1, y1, x2, y2);
 
-        System.out.println(coordinate.lineInfo());
+        System.out.println(obj.lineInfo());
 
         System.out.println("Enter a value for x");
         double coordinateX = scan.nextDouble();
 
-        System.out.println("The point on the line is " + coordinate.coordinateForX(coordinateX));
+        System.out.println("The point on the line is " + obj.coordinateForX(coordinateX));
 
 
     }
