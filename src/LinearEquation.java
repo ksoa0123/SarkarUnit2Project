@@ -48,7 +48,7 @@ public class LinearEquation {
     }
 
     public double slope(){
-        double yDiff = yCoord2 - yCoord1; //Casted to double to avoid integer division
+        double yDiff = yCoord2 - yCoord1;
         double xDiff = xCoord2 - xCoord1;
 
         double roundedSlope = this.roundedToHundredth(yDiff / xDiff); //Rounding to nearest hundreths
@@ -68,7 +68,7 @@ public class LinearEquation {
 
     public String simpleEquation(){
         return String.format("y = %sx + %s", this.slope(), this.yIntercept());
-    } //Equation without any formatting **For debugging purposes
+    } //Equation without any fraction formatting **For debugging purposes
 
     public String equation(){
         //Hours wasted here: 2 :'(

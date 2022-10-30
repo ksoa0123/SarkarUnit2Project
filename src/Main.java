@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        //  Ex; (0, 1) & (2, 4)
-        int x1, y1, x2, y2; //Sets up coordinate point values
+        //  Ex sample inputs; (0, 1) & (2, 4)
+        int x1, y1, x2, y2; //Initialize coordinate point value variables
 
         System.out.println("Hi user! Welcome to Linear Equation finder!"); //Greeting, as per rubric in doc
 
